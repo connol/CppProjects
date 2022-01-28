@@ -1,0 +1,9 @@
+28 7
+5 0
+xxxxxxxxxxxxxxxxxxxxxxxxxxxx
+xxx    x    x    x    x    x          
+xxx xx x xx x xx x xx x xx x
+xxx xx x xx x xx x xx x xx x 
+xxx xx x xx x xx x xx x xx x 
+    xx   xx   xx   xx   xx x
+xxxxxxxxxxxxxxxxxxxxxxxxxxxx

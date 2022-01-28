@@ -1,0 +1,815 @@
+Sat Feb 20 20:52:55 PST 2021
+Linux csslab7.uwb.edu 3.10.0-1160.11.1.el7.x86_64 #1 SMP Fri Dec 18 16:34:56 UTC 2020 x86_64 x86_64 x86_64 GNU/Linux
+uid=766742(connol) gid=2120766742(connol) groups=2120766742(connol),605559(lab-access)
+=====================================================
+ERROR ERROR ERROR ERROR ERROR ERROR ERROR ERROR ERROR 
+clang-tidy NOT found in path (but is in /opt/rh/llvm-toolset-7.0/root/bin/clang-tidy )
+Add the following command to ~/.bashrc file
+     source scl_source enable llvm-toolset-7.0
+You can add the command by executing the following line
+     echo "source scl_source enable llvm-toolset-7.0" >> ~/.bashrc
+=====================================================
+=====================================================
+1. Compiles without warnings with -Wall -Wextra flags
+=====================================================
+=====================================================
+2. Runs and produces correct output
+=====================================================
+Level: 4 -- -2147483648, 2147483647, 
+Level: 3 -- -2147483648, 2147483647, 
+Level: 2 -- -2147483648, 7, 2147483647, 
+Level: 1 -- -2147483648, 1, 3, 7, 2147483647, 
+Level: 0 -- -2147483648, 1, 3, 5, 7, 9, 2147483647, 
+
+7 ? true
+3 ? true
+-100 ? false
+100 ? false
+Level: 4 -- -2147483648, 2147483647, 
+Level: 3 -- -2147483648, 2147483647, 
+Level: 2 -- -2147483648, 7, 2147483647, 
+Level: 1 -- -2147483648, 1, 3, 7, 2147483647, 
+Level: 0 -- -2147483648, 1, 3, 7, 9, 2147483647, 
+
+no duplicates
+Level: 3 -- -2147483648, 2147483647, 
+Level: 2 -- -2147483648, 2147483647, 
+Level: 1 -- -2147483648, 39, 2147483647, 
+Level: 0 -- -2147483648, 2, 5, 7, 10, 39, 100, 2147483647, 
+no duplicates
+no duplicates
+Level: 9 -- -2147483648, 2147483647, 
+Level: 8 -- -2147483648, 2147483647, 
+Level: 7 -- -2147483648, 2147483647, 
+Level: 6 -- -2147483648, 107, 2147483647, 
+Level: 5 -- -2147483648, 107, 2147483647, 
+Level: 4 -- -2147483648, 107, 2147483647, 
+Level: 3 -- -2147483648, 107, 111, 118, 2147483647, 
+Level: 2 -- -2147483648, 7, 107, 108, 111, 115, 116, 118, 2147483647, 
+Level: 1 -- -2147483648, 7, 11, 29, 101, 105, 106, 107, 108, 110, 111, 114, 115, 116, 118, 123, 124, 2147483647, 
+Level: 0 -- -2147483648, 1, 7, 10, 11, 12, 13, 29, 32, 100, 101, 102, 103, 104, 105, 106, 107, 108, 109, 110, 111, 112, 113, 114, 115, 116, 117, 118, 119, 120, 121, 122, 123, 124, 2147483647, 
+Level: 9 -- -2147483648, 2147483647, 
+Level: 8 -- -2147483648, 2147483647, 
+Level: 7 -- -2147483648, 2147483647, 
+Level: 6 -- -2147483648, 107, 2147483647, 
+Level: 5 -- -2147483648, 107, 2147483647, 
+Level: 4 -- -2147483648, 107, 2147483647, 
+Level: 3 -- -2147483648, 107, 111, 118, 2147483647, 
+Level: 2 -- -2147483648, 7, 107, 108, 111, 115, 116, 118, 2147483647, 
+Level: 1 -- -2147483648, 7, 11, 101, 105, 106, 107, 108, 110, 111, 114, 115, 116, 118, 123, 124, 2147483647, 
+Level: 0 -- -2147483648, 1, 7, 10, 11, 12, 13, 32, 100, 101, 102, 103, 104, 105, 106, 107, 108, 109, 110, 111, 112, 113, 114, 115, 116, 117, 118, 119, 120, 121, 122, 123, 124, 2147483647, 
+Level: 0 -- -2147483648, 10, 100, 2147483647, 
+Level: 0 -- -2147483648, 100, 2147483647, 
+Done.
+=====================================================
+3. clang-tidy warnings are fixed
+=====================================================
+=====================================================
+4. clang-format does not find any formatting issues
+=====================================================
+Running clang-format on ./ass4.cpp
+8,10c8,10
+< //File to test skip list object and its functions
+< //2/20/2021
+< //Connor Lauerman
+---
+> // File to test skip list object and its functions
+> // 2/20/2021
+> // Connor Lauerman
+12c12
+< //will test a 5 layered skip list
+---
+> // will test a 5 layered skip list
+20c20
+<   skp.add(vector<int>{1, 7, 9});
+---
+>   skp.add(vector<int>{ 1, 7, 9 });
+22c22
+<   assert(!skp.add(vector<int>{1, 7}));
+---
+>   assert(!skp.add(vector<int>{ 1, 7 }));
+35,51c35,50
+< //Will test a 4 layered skip list and its methods
+< void test2()
+< {
+<   SkipList s(4,2);
+< assert(s.add(5));
+< s.add(10);
+< s.add(7);
+< s.add(10); //duplicate
+< s.add(2);
+< s.add(100);
+< s.add(39);
+< assert(s.contains(10));
+< assert(!s.contains(3));
+< cout<<s;
+< assert(s.remove(10));
+< assert(s.remove(5));
+< assert(!s.remove(3));
+---
+> // Will test a 4 layered skip list and its methods
+> void test2() {
+>   SkipList s(4, 2);
+>   assert(s.add(5));
+>   s.add(10);
+>   s.add(7);
+>   s.add(10); // duplicate
+>   s.add(2);
+>   s.add(100);
+>   s.add(39);
+>   assert(s.contains(10));
+>   assert(!s.contains(3));
+>   cout << s;
+>   assert(s.remove(10));
+>   assert(s.remove(5));
+>   assert(!s.remove(3));
+54,84c53,79
+< //will test a 10 layered skip list and its methods
+< void test3()
+< {
+<     SkipList large(10,50);
+<         assert(large.add(32));
+<         large.add(29);
+<         large.add(10);
+<         large.add(11);
+<         large.add(13);
+<         large.add(13);
+<         assert(!large.add(13));
+<         large.add(12);
+<         large.add(vector<int>{1, 7});
+<         large.add(vector<int>{9, 7});
+<         for(int i =100; i<125;i++)
+<         {
+<             large.add(i);
+<         }
+<         assert(large.contains(32));
+<         assert(!large.contains(21));
+<         cout<<large;
+<         assert(large.remove(29));
+<         cout<<large;
+<         large.remove(111);
+<         large.remove(115);
+<         large.remove(101);
+<         large.remove(105);
+<         large.remove(-10);
+<         large.remove(10);
+< 
+<     
+---
+> // will test a 10 layered skip list and its methods
+> void test3() {
+>   SkipList large(10, 50);
+>   assert(large.add(32));
+>   large.add(29);
+>   large.add(10);
+>   large.add(11);
+>   large.add(13);
+>   large.add(13);
+>   assert(!large.add(13));
+>   large.add(12);
+>   large.add(vector<int>{ 1, 7 });
+>   large.add(vector<int>{ 9, 7 });
+>   for (int i = 100; i < 125; i++) {
+>     large.add(i);
+>   }
+>   assert(large.contains(32));
+>   assert(!large.contains(21));
+>   cout << large;
+>   assert(large.remove(29));
+>   cout << large;
+>   large.remove(111);
+>   large.remove(115);
+>   large.remove(101);
+>   large.remove(105);
+>   large.remove(-10);
+>   large.remove(10);
+87,90c82,84
+< //will test a 1 layered skip list and its methods
+< void test4()
+< {
+<   SkipList s(1,10);
+---
+> // will test a 1 layered skip list and its methods
+> void test4() {
+>   SkipList s(1, 10);
+93c87
+<   cout<<s;
+---
+>   cout << s;
+97,100c91
+<   cout<<s;
+< 
+< 
+< 
+---
+>   cout << s;
+102c93
+< //runs the tests for skip list if they run correctly will print done
+---
+> // runs the tests for skip list if they run correctly will print done
+104,109c95,100
+<     test1();
+<     test2();
+<     test3();
+<     test4();
+<     cout << "Done." << endl;
+<     return 0;
+---
+>   test1();
+>   test2();
+>   test3();
+>   test4();
+>   cout << "Done." << endl;
+>   return 0;
+Running clang-format on ./skiplist.cpp
+2,5c2,5
+< //modified by mashhadi on 14th feb to add an alternative op<<
+< //Skiplist object that holds int data members with search of O(logn)
+< //2/20/2021
+< //Connor Lauerman
+---
+> // modified by mashhadi on 14th feb to add an alternative op<<
+> // Skiplist object that holds int data members with search of O(logn)
+> // 2/20/2021
+> // Connor Lauerman
+16,18c16,18
+< //writes to console the list and its layers
+< //precondition: must be a valid Skiplis object
+< //postcondition:the list will be wriiten to console
+---
+> // writes to console the list and its layers
+> // precondition: must be a valid Skiplis object
+> // postcondition:the list will be wriiten to console
+22,24c22,24
+<     SNode* Curr = SkipL.FrontGuards[Index];
+<     while(Curr != nullptr) {
+<       Out<< to_string(Curr->value) + ", ";
+---
+>     SNode *Curr = SkipL.FrontGuards[Index];
+>     while (Curr != nullptr) {
+>       Out << to_string(Curr->value) + ", ";
+32,39c32,39
+< //Constructor for nodes stored in list
+< //Precondtion: must have a int value for node to store
+< //Postcondition: node is created with value intialized
+< SNode::SNode(int value) : value{value} {
+<   forward=nullptr;
+<   backward=nullptr;
+<   up=nullptr;
+<   down=nullptr;
+---
+> // Constructor for nodes stored in list
+> // Precondtion: must have a int value for node to store
+> // Postcondition: node is created with value intialized
+> SNode::SNode(int value) : value{ value } {
+>   forward = nullptr;
+>   backward = nullptr;
+>   up = nullptr;
+>   down = nullptr;
+41a42,43
+> // array of Depth SNode* objects as FrontGuards linking levels
+> // SNode **FrontGuards;
+43,52c45,52
+<  // array of Depth SNode* objects as FrontGuards linking levels
+<  // SNode **FrontGuards;
+<  
+<   // array of Depth SNode* objects as RearGuards linking levels
+<   //SNode **RearGuards;
+< 
+< //creates the layered skiplist object initializeing the maxLevel and the
+< //probablitiy of values being stored in farther layers
+< //Precondition:the maxLevel must be positive and probablity must be between 0 and 100
+< //Postcondition:List will be created with the correct amount of layers
+---
+> // array of Depth SNode* objects as RearGuards linking levels
+> // SNode **RearGuards;
+> 
+> // creates the layered skiplist object initializeing the maxLevel and the
+> // probablitiy of values being stored in farther layers
+> // Precondition:the maxLevel must be positive and probablity must be between 0
+> // and 100
+> // Postcondition:List will be created with the correct amount of layers
+54c54
+<     : maxLevel{maxLevel}, probability{probability} {
+---
+>     : maxLevel{ maxLevel }, probability{ probability } {
+56,85c56,79
+<   FrontGuards=new SNode* [maxLevel];
+<   RearGuards= new SNode* [maxLevel];
+<   for(int i =0; i<maxLevel;i++)
+<   {
+<     FrontGuards[i]=new SNode(INT_MIN);
+<     RearGuards[i]=new SNode(INT_MAX);
+<     FrontGuards[i]->forward=RearGuards[i];
+<     RearGuards[i]->backward=FrontGuards[i];
+<     if(i>0)
+<     {
+<       FrontGuards[i]-> down = FrontGuards[i-1];
+<       RearGuards[i]-> down = RearGuards[i-1];
+<     }
+<     if(i!= maxLevel)
+<     {
+<       FrontGuards[i]-> up = FrontGuards[i+1];
+<       RearGuards[i]->up = RearGuards[i+1];
+<     }
+<   }
+<    for(int i =0; i<maxLevel;i++)
+<   {
+<     if(i>0)
+<     {
+<       FrontGuards[i]-> down = FrontGuards[i-1];
+<       RearGuards[i]-> down = RearGuards[i-1];
+<     }
+<     if(i!= maxLevel-1)
+<     {
+<       FrontGuards[i]-> up = FrontGuards[i+1];
+<       RearGuards[i]->up = RearGuards[i+1];
+---
+>   FrontGuards = new SNode *[maxLevel];
+>   RearGuards = new SNode *[maxLevel];
+>   for (int i = 0; i < maxLevel; i++) {
+>     FrontGuards[i] = new SNode(INT_MIN);
+>     RearGuards[i] = new SNode(INT_MAX);
+>     FrontGuards[i]->forward = RearGuards[i];
+>     RearGuards[i]->backward = FrontGuards[i];
+>     if (i > 0) {
+>       FrontGuards[i]->down = FrontGuards[i - 1];
+>       RearGuards[i]->down = RearGuards[i - 1];
+>     }
+>     if (i != maxLevel) {
+>       FrontGuards[i]->up = FrontGuards[i + 1];
+>       RearGuards[i]->up = RearGuards[i + 1];
+>     }
+>   }
+>   for (int i = 0; i < maxLevel; i++) {
+>     if (i > 0) {
+>       FrontGuards[i]->down = FrontGuards[i - 1];
+>       RearGuards[i]->down = RearGuards[i - 1];
+>     }
+>     if (i != maxLevel - 1) {
+>       FrontGuards[i]->up = FrontGuards[i + 1];
+>       RearGuards[i]->up = RearGuards[i + 1];
+90,100c84,93
+< //will give true or false 50 percent of the time
+< //Precondition:
+< //Postcondition: true or false randomly
+< bool SkipList::shouldInsertAtHigher() const {
+<   return rand() % 2==1;
+< }
+< 
+< //will add multiple nodes to the list based on value in vector
+< //Precondition:all values must be valid ints
+< //Postcondition:values added to list in correct locations and return true if added else false
+< bool SkipList::add(const vector<int> &values) { 
+---
+> // will give true or false 50 percent of the time
+> // Precondition:
+> // Postcondition: true or false randomly
+> bool SkipList::shouldInsertAtHigher() const { return rand() % 2 == 1; }
+> 
+> // will add multiple nodes to the list based on value in vector
+> // Precondition:all values must be valid ints
+> // Postcondition:values added to list in correct locations and return true if
+> // added else false
+> bool SkipList::add(const vector<int> &values) {
+102,105c95,96
+<   for (int i = 0;i<(int)values.size();i++)
+<   {
+<     if(!contains(values[i]))
+<     {
+---
+>   for (int i = 0; i < (int)values.size(); i++) {
+>     if (!contains(values[i])) {
+109,113c100,102
+<   if(containAll==(int)values.size())
+<   {
+<     for (int i = 0;i<(int)values.size();i++)
+<     {
+<     add(values[i]);
+---
+>   if (containAll == (int)values.size()) {
+>     for (int i = 0; i < (int)values.size(); i++) {
+>       add(values[i]);
+116,118c105
+<   }
+<   else
+<   {
+---
+>   } else {
+123,125c110,113
+< //Will add one value to the list
+< //Precondition:value is valid int
+< //Postcondition:value will be added to list and possibly its layers and return true if added else false
+---
+> // Will add one value to the list
+> // Precondition:value is valid int
+> // Postcondition:value will be added to list and possibly its layers and return
+> // true if added else false
+128c116
+<   int level =0;
+---
+>   int level = 0;
+131,175c119,151
+<     while(!found)
+<     {
+<       if(temp->forward->value < newValue)
+<       {
+<         temp = temp-> forward;
+<       }
+<       else if(temp->forward->value==newValue)
+<       {
+<         found= true;
+<         cout << "no duplicates"<<endl;
+<         delete toAdd;
+<         toAdd=nullptr;
+<         return false;
+<       }
+<       else
+<       {
+<         addBefore(toAdd,temp->forward);
+<         found = true;
+<       }
+<    }
+<    bool again = shouldInsertAtHigher();
+<    SNode* newUpper;
+<     if(again)
+<     {
+<       while(again && level != maxLevel-1)
+<       {
+<         level++;
+<         newUpper=new SNode(newValue);
+<         newUpper->down=toAdd;
+<         toAdd->up=newUpper;
+<         toAdd=toAdd->backward;
+<        
+<         while(toAdd->up==nullptr)
+<         {
+<           
+<           toAdd=toAdd->backward;
+<         }
+<         toAdd=toAdd->up;
+<         toAdd=toAdd->forward;
+<         addBefore(newUpper,toAdd);
+<         toAdd=newUpper;
+<         again=shouldInsertAtHigher();
+<       }
+<     }
+<    return true;
+---
+>   while (!found) {
+>     if (temp->forward->value < newValue) {
+>       temp = temp->forward;
+>     } else if (temp->forward->value == newValue) {
+>       found = true;
+>       cout << "no duplicates" << endl;
+>       delete toAdd;
+>       toAdd = nullptr;
+>       return false;
+>     } else {
+>       addBefore(toAdd, temp->forward);
+>       found = true;
+>     }
+>   }
+>   bool again = shouldInsertAtHigher();
+>   SNode *newUpper;
+>   if (again) {
+>     while (again && level != maxLevel - 1) {
+>       level++;
+>       newUpper = new SNode(newValue);
+>       newUpper->down = toAdd;
+>       toAdd->up = newUpper;
+>       toAdd = toAdd->backward;
+> 
+>       while (toAdd->up == nullptr) {
+> 
+>         toAdd = toAdd->backward;
+>       }
+>       toAdd = toAdd->up;
+>       toAdd = toAdd->forward;
+>       addBefore(newUpper, toAdd);
+>       toAdd = newUpper;
+>       again = shouldInsertAtHigher();
+176a153,155
+>   }
+>   return true;
+> }
+178c157
+< //destructor destroys each node added to the list
+---
+> // destructor destroys each node added to the list
+180c159
+<   SNode* temp=FrontGuards[maxLevel-1];
+---
+>   SNode *temp = FrontGuards[maxLevel - 1];
+182,204c161,176
+<   for(int i=0;i<maxLevel;i++)
+<   { 
+<       temp = FrontGuards[i];
+<       atRear=false;
+<       while(!atRear)
+<       {
+<         temp->up=nullptr;
+<         temp->down=nullptr;
+<         temp->backward=nullptr;
+<         if(temp->value != RearGuards[i]->value)
+<         {
+<           temp=temp->forward;
+<           temp->backward->forward=nullptr;
+<           delete temp->backward;
+<         }
+<         else
+<         {
+<           temp->forward=nullptr;
+<           delete temp;
+<           atRear=true;
+<           temp=nullptr;
+<         }
+<       
+---
+>   for (int i = 0; i < maxLevel; i++) {
+>     temp = FrontGuards[i];
+>     atRear = false;
+>     while (!atRear) {
+>       temp->up = nullptr;
+>       temp->down = nullptr;
+>       temp->backward = nullptr;
+>       if (temp->value != RearGuards[i]->value) {
+>         temp = temp->forward;
+>         temp->backward->forward = nullptr;
+>         delete temp->backward;
+>       } else {
+>         temp->forward = nullptr;
+>         delete temp;
+>         atRear = true;
+>         temp = nullptr;
+205a178
+>     }
+212,218c185,191
+< //will remove a value fromt the list including the layers
+< //Precondition:data valid int
+< //Postcondition:the data will be removed from the list including its layers and return true if complted else false
+< bool SkipList::remove(int data) { 
+<   if(containsSNode(data))
+<   {
+<     SNode* temp = containsSNode(data);
+---
+> // will remove a value fromt the list including the layers
+> // Precondition:data valid int
+> // Postcondition:the data will be removed from the list including its layers and
+> // return true if complted else false
+> bool SkipList::remove(int data) {
+>   if (containsSNode(data)) {
+>     SNode *temp = containsSNode(data);
+220,223c193,194
+<   }
+<   else
+<   {
+<   return false; 
+---
+>   } else {
+>     return false;
+227,235c198,204
+< //A helper function to remove all layers of the data
+< //Precondition:Node is in skiplist
+< //Postcondition: The node will be removed and return true
+< bool SkipList::removeHelp(SNode* toRemove)
+< {
+<   if(toRemove->down==nullptr)
+<   {
+<     toRemove->backward->forward=toRemove->forward;
+<     toRemove->forward->backward=toRemove->backward;
+---
+> // A helper function to remove all layers of the data
+> // Precondition:Node is in skiplist
+> // Postcondition: The node will be removed and return true
+> bool SkipList::removeHelp(SNode *toRemove) {
+>   if (toRemove->down == nullptr) {
+>     toRemove->backward->forward = toRemove->forward;
+>     toRemove->forward->backward = toRemove->backward;
+238c207
+<     toRemove =nullptr;
+---
+>     toRemove = nullptr;
+240,242c209
+<   }
+<   else
+<   {
+---
+>   } else {
+244,245c211,212
+<     toRemove->backward->forward=toRemove->forward;
+<     toRemove->forward->backward=toRemove->backward;
+---
+>     toRemove->backward->forward = toRemove->forward;
+>     toRemove->forward->backward = toRemove->backward;
+249,250c216,217
+<     toRemove =nullptr;
+<     return true;  
+---
+>     toRemove = nullptr;
+>     return true;
+254d220
+< 
+267d232
+< 
+271,283c236,245
+< //Precondition:data valid int
+< //Postcondition:will return the node that is in the list else returns nullptr
+< SNode *SkipList::containsSNode(int data) const { 
+<   
+<   SNode *temp = FrontGuards[maxLevel-1]; 
+<    int max=maxLevel;
+<     for(int i = max-1;i>=0;i--)
+<     {
+<       temp = FrontGuards[i];
+<       while(temp != nullptr)
+<       {
+<       if(temp->forward->value==data)
+<       {
+---
+> // Precondition:data valid int
+> // Postcondition:will return the node that is in the list else returns nullptr
+> SNode *SkipList::containsSNode(int data) const {
+> 
+>   SNode *temp = FrontGuards[maxLevel - 1];
+>   int max = maxLevel;
+>   for (int i = max - 1; i >= 0; i--) {
+>     temp = FrontGuards[i];
+>     while (temp != nullptr) {
+>       if (temp->forward->value == data) {
+285,287c247
+<       }
+<       else if(temp->forward->value<data)
+<       {
+---
+>       } else if (temp->forward->value < data) {
+289,293c249,250
+<       }
+<       else
+<       {
+<         temp = temp -> down;
+<       }
+---
+>       } else {
+>         temp = temp->down;
+296d252
+<   return nullptr; 
+297a254,255
+>   return nullptr;
+> }
+301,302c259,260
+< //Precondition: data is in list
+< //Postcondition: will return true if is in list or false otherwise
+---
+> // Precondition: data is in list
+> // Postcondition: will return true if is in list or false otherwise
+304,312c262,267
+<    SNode *temp = FrontGuards[maxLevel-1]; 
+<    int max=maxLevel;
+<     for(int i = max-1;i>=0;i--)
+<     {
+<       temp = FrontGuards[i];
+<       while(temp != nullptr)
+<       {
+<       if(temp->forward->value==data)
+<       {
+---
+>   SNode *temp = FrontGuards[maxLevel - 1];
+>   int max = maxLevel;
+>   for (int i = max - 1; i >= 0; i--) {
+>     temp = FrontGuards[i];
+>     while (temp != nullptr) {
+>       if (temp->forward->value == data) {
+314,316c269
+<       }
+<       else if(temp->forward->value<data)
+<       {
+---
+>       } else if (temp->forward->value < data) {
+318,322c271,272
+<       }
+<       else
+<       {
+<         temp = temp -> down;
+<       }
+---
+>       } else {
+>         temp = temp->down;
+325d274
+<   return false; 
+326a276,277
+>   return false;
+> }
+=====================================================
+5. No memory leaks using g++
+=====================================================
+=====================================================
+6. No memory leaks using valgrind, look for "definitely lost" 
+=====================================================
+==3385== Memcheck, a memory error detector
+==3385== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==3385== Using Valgrind-3.15.0 and LibVEX; rerun with -h for copyright info
+==3385== Command: ./a.out
+==3385== Parent PID: 3337
+==3385== 
+==3385== Invalid read of size 8
+==3385==    at 0x403258: SkipList::SkipList(int, int) (skiplist.cpp:71)
+==3385==    by 0x4019D8: test1() (ass4.cpp:16)
+==3385==    by 0x40247C: main (ass4.cpp:104)
+==3385==  Address 0x5b09ca8 is 0 bytes after a block of size 40 alloc'd
+==3385==    at 0x4C2AC38: operator new[](unsigned long) (vg_replace_malloc.c:433)
+==3385==    by 0x403085: SkipList::SkipList(int, int) (skiplist.cpp:56)
+==3385==    by 0x4019D8: test1() (ass4.cpp:16)
+==3385==    by 0x40247C: main (ass4.cpp:104)
+==3385== 
+==3385== Invalid read of size 8
+==3385==    at 0x403290: SkipList::SkipList(int, int) (skiplist.cpp:72)
+==3385==    by 0x4019D8: test1() (ass4.cpp:16)
+==3385==    by 0x40247C: main (ass4.cpp:104)
+==3385==  Address 0x5b09d18 is 0 bytes after a block of size 40 alloc'd
+==3385==    at 0x4C2AC38: operator new[](unsigned long) (vg_replace_malloc.c:433)
+==3385==    by 0x4030B7: SkipList::SkipList(int, int) (skiplist.cpp:57)
+==3385==    by 0x4019D8: test1() (ass4.cpp:16)
+==3385==    by 0x40247C: main (ass4.cpp:104)
+==3385== 
+==3385== Invalid read of size 8
+==3385==    at 0x403258: SkipList::SkipList(int, int) (skiplist.cpp:71)
+==3385==    by 0x401D8C: test2() (ass4.cpp:38)
+==3385==    by 0x402481: main (ass4.cpp:105)
+==3385==  Address 0x5b0a670 is 0 bytes after a block of size 32 alloc'd
+==3385==    at 0x4C2AC38: operator new[](unsigned long) (vg_replace_malloc.c:433)
+==3385==    by 0x403085: SkipList::SkipList(int, int) (skiplist.cpp:56)
+==3385==    by 0x401D8C: test2() (ass4.cpp:38)
+==3385==    by 0x402481: main (ass4.cpp:105)
+==3385== 
+==3385== Invalid read of size 8
+==3385==    at 0x403290: SkipList::SkipList(int, int) (skiplist.cpp:72)
+==3385==    by 0x401D8C: test2() (ass4.cpp:38)
+==3385==    by 0x402481: main (ass4.cpp:105)
+==3385==  Address 0x5b0a6d0 is 0 bytes after a block of size 32 alloc'd
+==3385==    at 0x4C2AC38: operator new[](unsigned long) (vg_replace_malloc.c:433)
+==3385==    by 0x4030B7: SkipList::SkipList(int, int) (skiplist.cpp:57)
+==3385==    by 0x401D8C: test2() (ass4.cpp:38)
+==3385==    by 0x402481: main (ass4.cpp:105)
+==3385== 
+==3385== Invalid read of size 8
+==3385==    at 0x403258: SkipList::SkipList(int, int) (skiplist.cpp:71)
+==3385==    by 0x401F79: test3() (ass4.cpp:57)
+==3385==    by 0x402486: main (ass4.cpp:106)
+==3385==  Address 0x5b0ae60 is 0 bytes after a block of size 80 alloc'd
+==3385==    at 0x4C2AC38: operator new[](unsigned long) (vg_replace_malloc.c:433)
+==3385==    by 0x403085: SkipList::SkipList(int, int) (skiplist.cpp:56)
+==3385==    by 0x401F79: test3() (ass4.cpp:57)
+==3385==    by 0x402486: main (ass4.cpp:106)
+==3385== 
+==3385== Invalid read of size 8
+==3385==    at 0x403290: SkipList::SkipList(int, int) (skiplist.cpp:72)
+==3385==    by 0x401F79: test3() (ass4.cpp:57)
+==3385==    by 0x402486: main (ass4.cpp:106)
+==3385==  Address 0x5b0aef0 is 0 bytes after a block of size 80 alloc'd
+==3385==    at 0x4C2AC38: operator new[](unsigned long) (vg_replace_malloc.c:433)
+==3385==    by 0x4030B7: SkipList::SkipList(int, int) (skiplist.cpp:57)
+==3385==    by 0x401F79: test3() (ass4.cpp:57)
+==3385==    by 0x402486: main (ass4.cpp:106)
+==3385== 
+==3385== Invalid read of size 8
+==3385==    at 0x403258: SkipList::SkipList(int, int) (skiplist.cpp:71)
+==3385==    by 0x402356: test4() (ass4.cpp:90)
+==3385==    by 0x40248B: main (ass4.cpp:107)
+==3385==  Address 0x5b0d498 is 0 bytes after a block of size 8 alloc'd
+==3385==    at 0x4C2AC38: operator new[](unsigned long) (vg_replace_malloc.c:433)
+==3385==    by 0x403085: SkipList::SkipList(int, int) (skiplist.cpp:56)
+==3385==    by 0x402356: test4() (ass4.cpp:90)
+==3385==    by 0x40248B: main (ass4.cpp:107)
+==3385== 
+==3385== Invalid read of size 8
+==3385==    at 0x403290: SkipList::SkipList(int, int) (skiplist.cpp:72)
+==3385==    by 0x402356: test4() (ass4.cpp:90)
+==3385==    by 0x40248B: main (ass4.cpp:107)
+==3385==  Address 0x5b0d4e8 is 0 bytes after a block of size 8 alloc'd
+==3385==    at 0x4C2AC38: operator new[](unsigned long) (vg_replace_malloc.c:433)
+==3385==    by 0x4030B7: SkipList::SkipList(int, int) (skiplist.cpp:57)
+==3385==    by 0x402356: test4() (ass4.cpp:90)
+==3385==    by 0x40248B: main (ass4.cpp:107)
+==3385== 
+==3385== 
+==3385== HEAP SUMMARY:
+==3385==     in use at exit: 0 bytes in 0 blocks
+==3385==   total heap usage: 136 allocs, 136 frees, 77,980 bytes allocated
+==3385== 
+==3385== All heap blocks were freed -- no leaks are possible
+==3385== 
+==3385== For lists of detected and suppressed errors, rerun with: -s
+==3385== ERROR SUMMARY: 8 errors from 8 contexts (suppressed: 0 from 0)
+=====================================================
+7. Tests have full code coverage
+=====================================================
+clang: error: unknown argument: '-fprofile-instr-generate'
+clang: error: unknown argument: '-fcoverage-mapping'
+ERROR: ./check-code-coverage.sh: Failed to create executable
+Sat Feb 20 20:52:59 PST 2021
+=====================================================
+To create an output.txt file with all the output from this script
+Run the below command
+      ./create-output.sh > output.txt 2>&1 
+=====================================================
